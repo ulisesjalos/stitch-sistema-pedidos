@@ -364,15 +364,6 @@ export const productosGorras: Producto[] = [
   {
     id: 'G003',
     genero: 'Unisex',
-    nombre: 'GORRA GABARDINA',
-    precios: { base: 120},
-    imagen: 'https://i.pinimg.com/1200x/34/1e/ac/341eac6866a3958654c1548da79a88c4.jpg',
-    unitalla: true,
-    descripcion: 'Gorra gabardina con ajuste corredizo.',
-  },
-  {
-    id: 'G004',
-    genero: 'Unisex',
     nombre: 'GORRA YUPOONG',
     precios: { base: 250},
     imagen: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTONhAixdX6I150q_qRxoHZbClaR7bQ6wMDs9NTd4cttZrT1MLwEGZyGBSXTQZq8mT2GvgwCIzTN4Q9J7OLfpjSW9wVAFMreYqrqE0H0Q23ySR8Mp4AXnEeGmnoA38qbKWSF0944f4&usqp=CAc',
@@ -380,13 +371,22 @@ export const productosGorras: Producto[] = [
     descripcion: 'Gorra acrilico rigido con malla en la parte posterior.',
   },
    {
-    id: 'G005',
+    id: 'G004',
     genero: 'Unisex',
     nombre: 'GORRA BICOLOR',
     precios: { base: 250},
     imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4UnwmUB8qm46bVwfwQT8iNTvcl4FH9fLBGQ&s',
     unitalla: true,
     descripcion: 'Gorra acrilico con visera diferene color.',
+  },
+  {
+    id: 'G005',
+    genero: 'Unisex',
+    nombre: 'GORRA GABARDINA',
+    precios: { base: 120},
+    imagen: 'https://i.pinimg.com/1200x/34/1e/ac/341eac6866a3958654c1548da79a88c4.jpg',
+    unitalla: true,
+    descripcion: 'Gorra gabardina con ajuste corredizo.',
   },
 ];
 

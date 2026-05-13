@@ -19,10 +19,7 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
   const isUnitalla = !!producto.unitalla;
   const [talla, setTalla] = useState<Talla>('MD');
   const [color, setColor] = useState('');
-  
-  // 1. Cambiamos el estado inicial a 0
-  const [cantidad, setCantidad] = useState(0); 
-  
+  const [cantidad, setCantidad] = useState(1);
   const [added, setAdded] = useState(false);
   const [colorError, setColorError] = useState(false);
   const [imgError, setImgError] = useState(false);
@@ -34,9 +31,6 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
       : producto.precios.base;
 
   function handleAdd() {
-    // 2. Validación: No agregar si la cantidad es 0
-    if (cantidad <= 0) return; 
-    
     if (!color.trim()) {
       setColorError(true);
       return;
@@ -52,9 +46,7 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
     setAdded(true);
     setTimeout(() => setAdded(false), 1500);
     setColor('');
-    
-    // Al reiniciar después de agregar, vuelve a 0
-    setCantidad(0); 
+    setCantidad(1);
     setTalla('MD');
     setColorError(false);
   }
@@ -156,8 +148,7 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
           <p className="text-xs font-medium text-gray-400 mb-2 uppercase tracking-wider">Cantidad</p>
           <div className="flex items-center gap-3">
             <button
-              // 3. El botón de menos ahora permite bajar hasta 0
-              onClick={() => setCantidad((c) => Math.max(0, c - 1))} 
+              onClick={() => setCantidad((c) => Math.max(1, c - 1))}
               className="w-8 h-8 rounded-lg border border-gray-200 flex items-center justify-center text-gray-600 hover:border-gray-400 hover:bg-gray-50 transition-all"
             >
               <Minus size={14} />
@@ -165,13 +156,11 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
             
             <input
               type="number"
-              // 4. El mínimo permitido en el input manual ahora es 0
-              min="0" 
+              min="1"
               value={cantidad}
               onChange={(e) => {
                 const val = parseInt(e.target.value);
-                // Si está vacío o no es número, ponemos 0
-                setCantidad(isNaN(val) || val < 0 ? 0 : val); 
+                setCantidad(isNaN(val) || val < 1 ? 1 : val);
               }}
               className="w-12 text-center text-sm font-bold text-gray-900 border-b border-gray-200 focus:border-gray-900 outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
             />
@@ -187,14 +176,10 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
 
         <button
           onClick={handleAdd}
-          // 5. Deshabilitamos visualmente el botón si la cantidad es 0
-          disabled={cantidad <= 0}
           className={`mt-auto w-full py-2.5 rounded-xl text-sm font-semibold tracking-wide transition-all duration-200 flex items-center justify-center gap-2 ${
             added
               ? 'bg-green-600 text-white'
-              : cantidad <= 0
-                ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                : 'bg-gray-900 text-white hover:bg-gray-700 active:scale-95'
+              : 'bg-gray-900 text-white hover:bg-gray-700 active:scale-95'
           }`}
         >
           {added ? (

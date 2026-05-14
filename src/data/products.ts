@@ -39,14 +39,14 @@ export const productosPlayeras: Producto[] = [
     genero: 'Niño',
     nombre: 'PLAYERA NIÑO',
     precios: { base: 90, XXG: 110 },
-    imagen: 'https://images.pexels.com/photos/5698852/pexels-photo-5698852.jpeg?auto=compress&cs=tinysrgb&w=600',
+    imagen: 'https://plus.unsplash.com/premium_photo-1691367782367-2bd37f646abc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dHNoaXJ0JTIweW91bmd8ZW58MHx8MHx8fDA%3D',
   },
   {
     id: 'B0300',
     genero: 'Bebé',
     nombre: 'PLAYERA BEBE',
     precios: { base: 90, XXG: 110 },
-    imagen: 'https://images.pexels.com/photos/6567607/pexels-photo-6567607.jpeg?auto=compress&cs=tinysrgb&w=600',
+    imagen: 'https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2hpcnQlMjBiYWJ5fGVufDB8fDB8fHww',
   },
   {
     id: 'C0304',

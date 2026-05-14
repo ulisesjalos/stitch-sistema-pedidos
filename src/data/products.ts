@@ -67,14 +67,14 @@ export const productosPlayeras: Producto[] = [
     genero: 'Niño',
     nombre: 'PLAYERA NIÑO MANGA LARGA',
     precios: { base: 130, XXG: 150 },
-    imagen: 'https://images.pexels.com/photos/5698856/pexels-photo-5698856.jpeg?auto=compress&cs=tinysrgb&w=600',
+    imagen: 'https://cdn.shopify.com/s/files/1/0304/3013/4331/files/the-classic-long-sleeve-t-shirt_sunflower_main.jpg?v=1751400689',
   },
   {
     id: 'TSUAOVER',
     genero: 'Unisex',
     nombre: 'PLAYERA OVERSIZE UNISEX',
     precios: { base: 250, XXG: 250 },
-    imagen: 'https://media.istockphoto.com/id/1491056555/photo/woman-in-a-white-t-shirt-poses-near-a-white-wall-hand-gestures-and-emotions-studio.jpg?s=2048x2048&w=is&k=20&c=qu6zGAhhaEyoLe4VWejb1LaZku2saNR-M09Wp_OmxNQ=',
+    imagen: 'https://s3-eu-west-1.amazonaws.com/resources.jhktshirt.com/pictures/catalogue/jhktshirt_tsuaover240_0.jpg',
   },
 ];
 

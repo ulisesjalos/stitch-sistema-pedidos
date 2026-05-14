@@ -18,7 +18,7 @@ export const productosPlayeras: Producto[] = [
     genero: 'Caballero',
     nombre: 'PLAYERA CABALLERO',
     precios: { base: 120, XXG: 140 },
-    imagen: 'https://images.pexels.com/photos/5698851/pexels-photo-5698851.jpeg?auto=compress&cs=tinysrgb&w=600',
+    imagen: 'https://plus.unsplash.com/premium_photo-1690366911099-0c0e170c9a51?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTgxfHx0c2hpcnR8ZW58MHx8MHx8fDA%3D',
   },
   {
     id: 'D0300',

@@ -29,12 +29,14 @@ export default function Header({ cartCount, onCartOpen, categoria, onCategoriaCh
             )}
           </button>
         </div>
-        <div className="flex gap-1 -mb-px">
+        
+        {/* Contenedor corregido para scroll horizontal en móvil */}
+        <div className="flex gap-1 -mb-px overflow-x-auto whitespace-nowrap scrollbar-hide">
           {categorias.map((cat) => (
             <button
               key={cat}
               onClick={() => onCategoriaChange(cat)}
-              className={`px-4 py-2 text-sm font-semibold transition-colors relative ${
+              className={`px-4 py-2 text-sm font-semibold transition-colors relative flex-shrink-0 ${
                 categoria === cat
                   ? 'text-gray-900'
                   : 'text-gray-400 hover:text-gray-600'

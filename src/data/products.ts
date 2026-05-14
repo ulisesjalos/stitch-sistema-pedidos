@@ -60,7 +60,7 @@ export const productosPlayeras: Producto[] = [
     genero: 'Dama',
     nombre: 'PLAYERA DAMA MANGA LARGA',
     precios: { base: 160, XXG: 180 },
-    imagen: 'https://images.pexels.com/photos/5698857/pexels-photo-5698857.jpeg?auto=compress&cs=tinysrgb&w=600',
+    imagen: 'https://allmade.com/cdn/shop/files/womens-tri-blend-long-sleeve-tee-653451_900x.jpg?v=1714411225',
   },
   {
     id: 'N0304',

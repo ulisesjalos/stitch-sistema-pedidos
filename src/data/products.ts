@@ -25,7 +25,7 @@ export const productosPlayeras: Producto[] = [
     genero: 'Dama',
     nombre: 'PLAYERA DAMA',
     precios: { base: 120, XXG: 140 },
-    imagen: 'https://images.pexels.com/photos/5698854/pexels-photo-5698854.jpeg?auto=compress&cs=tinysrgb&w=600',
+    imagen: 'https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTR8fHRzaGlydHxlbnwwfHwwfHx8MA%3D%3D',
   },
   {
     id: 'J0300',

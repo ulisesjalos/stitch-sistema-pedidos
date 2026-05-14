@@ -74,7 +74,7 @@ export const productosPlayeras: Producto[] = [
     genero: 'Unisex',
     nombre: 'PLAYERA OVERSIZE UNISEX',
     precios: { base: 250, XXG: 250 },
-    imagen: 'https://images.pexels.com/photos/5698850/pexels-photo-5698850.jpeg?auto=compress&cs=tinysrgb&w=600',
+    imagen: 'https://media.istockphoto.com/id/1491056555/photo/woman-in-a-white-t-shirt-poses-near-a-white-wall-hand-gestures-and-emotions-studio.jpg?s=2048x2048&w=is&k=20&c=qu6zGAhhaEyoLe4VWejb1LaZku2saNR-M09Wp_OmxNQ=',
   },
 ];
 

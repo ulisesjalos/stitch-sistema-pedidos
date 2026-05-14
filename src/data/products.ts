@@ -53,7 +53,7 @@ export const productosPlayeras: Producto[] = [
     genero: 'Caballero',
     nombre: 'PLAYERA CABALLERO MANGA LARGA',
     precios: { base: 160, XXG: 180 },
-    imagen: 'https://images.pexels.com/photos/5698853/pexels-photo-5698853.jpeg?auto=compress&cs=tinysrgb&w=600',
+    imagen: 'https://http2.mlstatic.com/D_NQ_NP_2X_898240-MLM97787918996_112025-F-playera-manga-larga-camiseta-hombre-gildan-negra-5400.webp',
   },
   {
     id: 'D0304',

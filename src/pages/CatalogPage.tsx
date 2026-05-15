@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { ShoppingBag } from 'lucide-react';
+import { ShoppingBag, FileText } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import ClientForm from '../components/ClientForm';
 import FilterTabs from '../components/FilterTabs';
 import ProductCard from '../components/ProductCard';
@@ -56,22 +57,38 @@ export default function CatalogPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <header className="fixed top-0 left-0 right-0 z-40 bg-white border-b border-gray-100">
+      <header className="fixed top-0 left-0 right-0 z-40 bg-white border-b border-gray-100 print:hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="h-16 flex items-center justify-between">
             <div className="font-black text-xl tracking-tighter text-gray-900">STITCH</div>
-            <button
-              onClick={() => setCartOpen(true)}
-              className="relative flex items-center gap-1.5 text-gray-700 hover:text-gray-900 transition-colors"
-              aria-label="Abrir carrito"
-            >
-              <ShoppingBag size={24} strokeWidth={1.5} />
-              {cartCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-gray-900 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center leading-none">
-                  {cartCount > 99 ? '99+' : cartCount}
-                </span>
-              )}
-            </button>
+            
+            {/* Contenedor de Acciones (Derecha) */}
+            <div className="flex items-center gap-4">
+              
+              {/* ENLACE AL GENERADOR DE INVOICE */}
+              <Link
+                to="/invoice"
+                className="px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 bg-gray-100 text-gray-700 hover:bg-gray-900 hover:text-white transition-all"
+              >
+                <FileText size={15} strokeWidth={2} />
+                <span className="hidden sm:inline">Generador de Invoice</span>
+              </Link>
+
+              {/* ICONO DE LA BOLSA DE COMPRAS */}
+              <button
+                onClick={() => setCartOpen(true)}
+                className="relative flex items-center gap-1.5 text-gray-700 hover:text-gray-900 transition-colors"
+                aria-label="Abrir carrito"
+              >
+                <ShoppingBag size={24} strokeWidth={1.5} />
+                {cartCount > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-gray-900 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center leading-none">
+                    {cartCount > 99 ? '99+' : cartCount}
+                  </span>
+                )}
+              </button>
+
+            </div>
           </div>
 
           <div className="flex gap-1 -mb-px overflow-x-auto whitespace-nowrap scrollbar-hide">

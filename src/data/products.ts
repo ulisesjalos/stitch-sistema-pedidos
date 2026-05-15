@@ -1,5 +1,6 @@
 export type Genero = 'Caballero' | 'Dama' | 'Juvenil' | 'Niño' | 'Bebé' | 'Unisex';
-export type Talla = 'CH' | 'MD' | 'GR' | 'XG' | 'XXG';
+// Se agregaron las tallas de niño y bebé al tipo Talla
+export type Talla = 'CH' | 'MD' | 'GR' | 'XG' | 'XXG' | 'CH (4 A)' | 'MD (6 A)' | 'GD (8 A)' | 'XG (10 A)' | 'T1' | 'T2' | 'T3';
 export type Categoria = 'Playeras' | 'Polos' | 'Deportiva' | 'Sudaderas' | 'Camisas' | 'Gorras';
 
 export interface Producto {
@@ -11,6 +12,11 @@ export interface Producto {
   unitalla?: boolean;
   descripcion?: string;
 }
+
+// --- Listas de tallas por tipo de producto ---
+export const TALLAS_ADULTO: Talla[] = ['CH', 'MD', 'GR', 'XG', 'XXG'];
+export const TALLAS_NINO: Talla[] = ['CH (4 A)', 'MD (6 A)', 'GD (8 A)', 'XG (10 A)'];
+export const TALLAS_BEBE: Talla[] = ['T1', 'T2', 'T3'];
 
 export const productosPlayeras: Producto[] = [
   {
@@ -347,7 +353,7 @@ export const productosGorras: Producto[] = [
     id: 'G001',
     genero: 'Unisex',
     nombre: 'GORRA 6 PANELES',
-    precios: { base: 60},
+    precios: { base: 60, XXG: 60 },
     imagen: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRsFnUp62jHymbEioNQUgCE3OYCKHrZjZvujQJnaBgvbcaGTR1ArYyrFSx3Y7IrcZrxD6IV_ufLszw5aSbkLifldei9SKShmAsXvy3epC6-fYA0VK6ZWXC4zFEBjdWsuzddM7yKBQ&usqp=CAc',
     unitalla: true,
     descripcion: 'Gorra acrilico de 6 paneles ajustable.',
@@ -356,7 +362,7 @@ export const productosGorras: Producto[] = [
     id: 'G002',
     genero: 'Unisex',
     nombre: 'GORRA TIPO TRUCKER',
-    precios: { base: 80},
+    precios: { base: 80, XXG: 80 },
     imagen: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQi-e9nW2rmPJvUqXqZvgykAVdkvW9-as6Uh6u1CvUv8nzy3n1R9HkNRhcSVn_fivIwQGPgCz_pR4rwikB0RJWECNgWvBTkC87heR_ve-9NyM1A5BbXdhRsRQ&usqp=CAc',
     unitalla: true,
     descripcion: 'Gorra acrilico con malla en la parte posterior (Trucker).',
@@ -365,16 +371,16 @@ export const productosGorras: Producto[] = [
     id: 'G003',
     genero: 'Unisex',
     nombre: 'GORRA YUPOONG',
-    precios: { base: 250},
+    precios: { base: 250, XXG: 250 },
     imagen: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTONhAixdX6I150q_qRxoHZbClaR7bQ6wMDs9NTd4cttZrT1MLwEGZyGBSXTQZq8mT2GvgwCIzTN4Q9J7OLfpjSW9wVAFMreYqrqE0H0Q23ySR8Mp4AXnEeGmnoA38qbKWSF0944f4&usqp=CAc',
     unitalla: true,
     descripcion: 'Gorra acrilico rigido con malla en la parte posterior.',
   },
-   {
+  {
     id: 'G004',
     genero: 'Unisex',
     nombre: 'GORRA BICOLOR',
-    precios: { base: 250},
+    precios: { base: 250, XXG: 250 },
     imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4UnwmUB8qm46bVwfwQT8iNTvcl4FH9fLBGQ&s',
     unitalla: true,
     descripcion: 'Gorra acrilico con visera diferene color.',
@@ -383,7 +389,7 @@ export const productosGorras: Producto[] = [
     id: 'G005',
     genero: 'Unisex',
     nombre: 'GORRA GABARDINA',
-    precios: { base: 120},
+    precios: { base: 120, XXG: 120 },
     imagen: 'https://i.pinimg.com/1200x/34/1e/ac/341eac6866a3958654c1548da79a88c4.jpg',
     unitalla: true,
     descripcion: 'Gorra gabardina con ajuste corredizo.',
@@ -409,8 +415,6 @@ export const generosPorCategoria: Record<Categoria, string[]> = {
   Camisas: ['Todos', 'Caballero', 'Dama'],
   Gorras: ['Todos'],
 };
-
-export const tallas: Talla[] = ['CH', 'MD', 'GR', 'XG', 'XXG'];
 
 // Backward compat
 export const productos = productosPlayeras;

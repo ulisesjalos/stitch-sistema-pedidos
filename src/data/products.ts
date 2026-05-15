@@ -223,7 +223,7 @@ export const productosSudaderas: Producto[] = [
     genero: 'Unisex',
     nombre: 'SUDADERA CAPUCHA Y CANGURERA',
     precios: { base: 300, XXG: 320 },
-    imagen: 'https://www.moplayeras.com/cdn/shop/products/91772_MD_d608ebf7-2028-46a2-993b-8ae60724e4d0_720x.jpg?v=1682109759',
+    imagen: 'https://yazbek.com.mx/cdn/shop/files/C0702-sudadera-cap-cie-unisex-adulto-50algodon-50poliester-marino_4.jpg?v=1734463371',
   },
   {
     id: 'C0702',

@@ -244,14 +244,14 @@ export const productosSudaderas: Producto[] = [
     genero: 'Niño',
     nombre: 'SUDADERA CUELLO REDONDO NIÑO',
     precios: { base: 200, XXG: 220 },
-    imagen: 'https://images.pexels.com/photos/5698852/pexels-photo-5698852.jpeg?auto=compress&cs=tinysrgb&w=600',
+    imagen: 'https://yazbek.com.mx/cdn/shop/files/N0700-sudadera-cr-unisex-nino-50algodon-50poliester-blanco_3.jpg?v=1734533694',
   },
   {
     id: 'N0701',
     genero: 'Niño',
     nombre: 'SUDADERA CAPUCHA Y CANGURERA NIÑO',
     precios: { base: 260, XXG: 280 },
-    imagen: 'https://images.pexels.com/photos/5698856/pexels-photo-5698856.jpeg?auto=compress&cs=tinysrgb&w=600',
+    imagen: 'https://yazbek.com.mx/cdn/shop/files/N0701-sudadera-cap-can-ninos-50algodon-50poliester-rojo_3.jpg?v=1753127504',
   },
 ];
 

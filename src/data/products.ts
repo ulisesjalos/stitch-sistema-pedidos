@@ -237,7 +237,7 @@ export const productosSudaderas: Producto[] = [
     genero: 'Unisex',
     nombre: 'SUDADERA 1/4 CIERRE',
     precios: { base: 240, XXG: 260 },
-    imagen: 'https://images.pexels.com/photos/5698854/pexels-photo-5698854.jpeg?auto=compress&cs=tinysrgb&w=600',
+    imagen: 'https://www.clicheuniformes.com/cdn/shop/files/CO703A.png?v=1749235972&width=1946',
   },
   {
     id: 'N0700',

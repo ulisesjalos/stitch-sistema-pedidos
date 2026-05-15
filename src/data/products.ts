@@ -282,7 +282,7 @@ export const productosCamisas: Producto[] = [
     genero: 'Dama',
     nombre: 'CAMISA OXFORD MANGA LARGA',
     precios: { base: 330, XXG: 350 },
-    imagen: 'https://images.pexels.com/photos/5698857/pexels-photo-5698857.jpeg?auto=compress&cs=tinysrgb&w=600',
+    imagen: 'https://yazbek.com.mx/cdn/shop/files/D0605-camisa-oxford-liso-ml-silueta-dama-75algodon-25poliester-rosa_3.jpg?v=1734467948',
   },
   {
     id: 'C606',
@@ -303,7 +303,7 @@ export const productosCamisas: Producto[] = [
     genero: 'Caballero',
     nombre: 'CAMISA GABARDINA MANGA LARGA',
     precios: { base: 330, XXG: 350 },
-    imagen: 'https://images.pexels.com/photos/5698853/pexels-photo-5698853.jpeg?auto=compress&cs=tinysrgb&w=600',
+    imagen: 'https://yazbek.com.mx/cdn/shop/files/C0607-camisa-gabardina-ml-caballero-50algodon-50poliester-blanco_3.jpg?v=1734455905',
   },
   {
     id: 'D607',

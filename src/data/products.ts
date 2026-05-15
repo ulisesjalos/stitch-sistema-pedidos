@@ -32,7 +32,7 @@ export const productosPlayeras: Producto[] = [
     genero: 'Juvenil',
     nombre: 'PLAYERA PARA JOVEN',
     precios: { base: 100, XXG: 120 },
-    imagen: 'https://plus.unsplash.com/premium_photo-1707816501388-6030b9f3eee8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c2hpcnQlMjB0ZWVuYWdlfGVufDB8fDB8fHww',
+    imagen: 'https://www.moplayeras.com/cdn/shop/files/91931_MF_1_720x.png?v=1682376996',
   },
   {
     id: 'N0300',

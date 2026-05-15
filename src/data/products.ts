@@ -84,14 +84,14 @@ export const productosPolos: Producto[] = [
     genero: 'Caballero',
     nombre: 'POLO CABALLERO',
     precios: { base: 180, XXG: 200 },
-    imagen: 'https://images.pexels.com/photos/5698851/pexels-photo-5698851.jpeg?auto=compress&cs=tinysrgb&w=600',
+    imagen: 'https://www.moplayeras.com/cdn/shop/files/92516_MF_720x.jpg?v=1682368564',
   },
   {
     id: 'D0550',
     genero: 'Dama',
     nombre: 'POLO DAMA',
     precios: { base: 180, XXG: 200 },
-    imagen: 'https://images.pexels.com/photos/5698854/pexels-photo-5698854.jpeg?auto=compress&cs=tinysrgb&w=600',
+    imagen: 'https://www.moplayeras.com/cdn/shop/products/92550_MF-MARINOBRILLANTE_c1607e52-e427-4708-aa8a-ee9beafaf406_720x.jpg?v=1682368767',
   },
   {
     id: 'N0501',

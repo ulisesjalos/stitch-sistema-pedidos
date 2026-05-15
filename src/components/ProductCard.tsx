@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Plus, Minus, ShoppingBag } from 'lucide-react';
 import type { Producto, Talla } from '../data/products';
-import { tallas } from '../data/products';
+import { TALLAS_ADULTO, TALLAS_NINO, TALLAS_BEBE } from '../data/products';
 
 interface ProductCardProps {
   producto: Producto;
@@ -17,13 +17,30 @@ interface ProductCardProps {
 
 export default function ProductCard({ producto, onAdd }: ProductCardProps) {
   const isUnitalla = !!producto.unitalla;
-  const [talla, setTalla] = useState<Talla>('MD');
+
+  // 1. Determinar qué lista de tallas mostrar según el género
+  const getTallasDisponibles = () => {
+    if (producto.genero === 'Niño') return TALLAS_NINO;
+    if (producto.genero === 'Bebé') return TALLAS_BEBE;
+    return TALLAS_ADULTO;
+  };
+
+  const tallasAMostrar = getTallasDisponibles();
+
+  // 2. Estado inicial de la talla basado en el género del producto
+  const [talla, setTalla] = useState<Talla>(() => {
+    if (producto.genero === 'Niño') return 'CH (4 A)';
+    if (producto.genero === 'Bebé') return 'T1';
+    return 'MD';
+  });
+
   const [color, setColor] = useState('');
   const [cantidad, setCantidad] = useState(1);
   const [added, setAdded] = useState(false);
   const [colorError, setColorError] = useState(false);
   const [imgError, setImgError] = useState(false);
 
+  // 3. Lógica de precio: Solo aplica extra en XXG para adultos
   const precio = isUnitalla
     ? producto.precios.base
     : talla === 'XXG'
@@ -47,7 +64,11 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
     setTimeout(() => setAdded(false), 1500);
     setColor('');
     setCantidad(1);
-    setTalla('MD');
+    // Resetear talla al valor inicial correcto según género
+    if (producto.genero === 'Niño') setTalla('CH (4 A)');
+    else if (producto.genero === 'Bebé') setTalla('T1');
+    else setTalla('MD');
+    
     setColorError(false);
   }
 
@@ -108,10 +129,10 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
           <div>
             <p className="text-xs font-medium text-gray-400 mb-2 uppercase tracking-wider">Talla</p>
             <div className="flex gap-1.5 flex-wrap">
-              {tallas.map((t) => (
+              {tallasAMostrar.map((t) => (
                 <button
                   key={t}
-                  onClick={() => setTalla(t)}
+                  onClick={() => setTalla(t as Talla)}
                   className={`px-2.5 py-1 text-xs font-semibold rounded-lg border transition-all duration-150 ${
                     talla === t
                       ? 'bg-gray-900 text-white border-gray-900'

@@ -223,7 +223,7 @@ export const productosSudaderas: Producto[] = [
     genero: 'Unisex',
     nombre: 'SUDADERA CAPUCHA Y CANGURERA',
     precios: { base: 300, XXG: 320 },
-    imagen: 'https://images.pexels.com/photos/5698851/pexels-photo-5698851.jpeg?auto=compress&cs=tinysrgb&w=600',
+    imagen: 'https://www.moplayeras.com/cdn/shop/products/91772_MD_d608ebf7-2028-46a2-993b-8ae60724e4d0_720x.jpg?v=1682109759',
   },
   {
     id: 'C0702',

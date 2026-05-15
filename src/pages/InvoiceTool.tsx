@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Printer, ClipboardText, Trash, CheckCircle2 } from 'lucide-react';
+import { Printer, Clipboard, Trash, CheckCircle2 } from 'lucide-react';
 
 interface InvoiceItem {
   nombre: string;
@@ -61,7 +61,7 @@ export default function InvoiceTool() {
       <div className="max-w-4xl mx-auto mb-8 print:hidden">
         <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
           <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-            <ClipboardText className="text-gray-900" /> 
+            <Clipboard className="text-gray-900" />
             Pegar pedido de WhatsApp
           </h2>
           <textarea

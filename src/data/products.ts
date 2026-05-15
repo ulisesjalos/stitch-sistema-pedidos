@@ -24,7 +24,7 @@ export const productosPlayeras: Producto[] = [
     genero: 'Caballero',
     nombre: 'PLAYERA CABALLERO',
     precios: { base: 120, XXG: 140 },
-    imagen: 'https://www.moplayeras.com/cdn/shop/products/92233_MF_720x.jpg?v=1682367230, https://www.moplayeras.com/cdn/shop/products/92233_MF_720x.jpg?v=1682367230',
+    imagen: 'https://www.moplayeras.com/cdn/shop/products/92233_MF_720x.jpg?v=1682367230',
   },
   {
     id: 'D0300',

@@ -157,7 +157,7 @@ export const productosDeportiva: Producto[] = [
     genero: 'Niño',
     nombre: 'PLAYERA DRY FIT NIÑO',
     precios: { base: 130, XXG: 150 },
-    imagen: 'https://images.pexels.com/photos/5698852/pexels-photo-5698852.jpeg?auto=compress&cs=tinysrgb&w=600',
+    imagen: 'https://yazbek.com.mx/cdn/shop/files/N1302-playera-cr-mc-unisex-nino-100poliester-negro_3.jpg?v=1736268172',
   },
   {
     id: 'C1304',
@@ -171,14 +171,14 @@ export const productosDeportiva: Producto[] = [
     genero: 'Dama',
     nombre: 'PLAYERA DRY FIT DAMA MANGA LARGA',
     precios: { base: 180, XXG: 200 },
-    imagen: 'https://images.pexels.com/photos/5698857/pexels-photo-5698857.jpeg?auto=compress&cs=tinysrgb&w=600',
+    imagen: 'https://yazbek.com.mx/cdn/shop/files/D1304-playera-cr-ml-silueta-dama-100poliester-royal_3.jpg?v=1734476091',
   },
   {
     id: 'N1304',
     genero: 'Niño',
     nombre: 'PLAYERA DRY FIT NIÑO MANGA LARGA',
     precios: { base: 150, XXG: 170 },
-    imagen: 'https://yazbek.com.mx/cdn/shop/files/N1302-playera-cr-mc-unisex-nino-100poliester-negro_3.jpg?v=1736268172',
+    imagen: 'https://yazbek.com.mx/cdn/shop/files/N0304-playera-pc-cr-ml-unisex-nino-100algodon-royal_3.jpg?v=1736277953',
   },
   {
     id: 'C1502',

@@ -35,7 +35,8 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
   });
 
   const [color, setColor] = useState('');
-  const [cantidad, setCantidad] = useState(1);
+  // SE ACTUALIZÓ: La cantidad inicial ahora es 0
+  const [cantidad, setCantidad] = useState(0); 
   const [added, setAdded] = useState(false);
   const [colorError, setColorError] = useState(false);
   const [imgError, setImgError] = useState(false);
@@ -52,6 +53,10 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
       setColorError(true);
       return;
     }
+    
+    // Evitar agregar si la cantidad sigue en 0
+    if (cantidad === 0) return;
+
     onAdd({
       productoId: producto.id,
       nombre: producto.nombre,
@@ -60,10 +65,14 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
       cantidad,
       precioUnitario: precio,
     });
+
     setAdded(true);
     setTimeout(() => setAdded(false), 1500);
+    
+    // Limpiar campos tras agregar
     setColor('');
-    setCantidad(1);
+    setCantidad(0); // SE ACTUALIZÓ: Regresa a 0 tras agregar
+    
     // Resetear talla al valor inicial correcto según género
     if (producto.genero === 'Niño') setTalla('CH (4 A)');
     else if (producto.genero === 'Bebé') setTalla('T1');
@@ -169,7 +178,7 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
           <p className="text-xs font-medium text-gray-400 mb-2 uppercase tracking-wider">Cantidad</p>
           <div className="flex items-center gap-3">
             <button
-              onClick={() => setCantidad((c) => Math.max(1, c - 1))}
+              onClick={() => setCantidad((c) => Math.max(0, c - 1))}
               className="w-8 h-8 rounded-lg border border-gray-200 flex items-center justify-center text-gray-600 hover:border-gray-400 hover:bg-gray-50 transition-all"
             >
               <Minus size={14} />
@@ -177,11 +186,11 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
             
             <input
               type="number"
-              min="1"
+              min="0"
               value={cantidad}
               onChange={(e) => {
                 const val = parseInt(e.target.value);
-                setCantidad(isNaN(val) || val < 1 ? 1 : val);
+                setCantidad(isNaN(val) || val < 0 ? 0 : val);
               }}
               className="w-12 text-center text-sm font-bold text-gray-900 border-b border-gray-200 focus:border-gray-900 outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
             />
@@ -197,8 +206,11 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
 
         <button
           onClick={handleAdd}
+          disabled={cantidad === 0}
           className={`mt-auto w-full py-2.5 rounded-xl text-sm font-semibold tracking-wide transition-all duration-200 flex items-center justify-center gap-2 ${
-            added
+            cantidad === 0
+              ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+              : added
               ? 'bg-green-600 text-white'
               : 'bg-gray-900 text-white hover:bg-gray-700 active:scale-95'
           }`}

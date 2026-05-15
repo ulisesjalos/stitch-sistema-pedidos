@@ -35,11 +35,18 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
   });
 
   const [color, setColor] = useState('');
-  // SE ACTUALIZÓ: La cantidad inicial ahora es 0
   const [cantidad, setCantidad] = useState(0); 
   const [added, setAdded] = useState(false);
   const [colorError, setColorError] = useState(false);
   const [imgError, setImgError] = useState(false);
+
+  // --- LÓGICA PARA MANEJAR REGLAS DE UNA O VARIAS IMÁGENES ---
+  // Si 'producto.imagenes' existe y es un arreglo, lo usamos. Si no, metemos 'producto.imagen' en un arreglo.
+  const listaImagenes = Array.isArray(producto.imagenes) 
+    ? producto.imagenes 
+    : producto.imagen 
+      ? [producto.imagen] 
+      : [];
 
   // 3. Lógica de precio: Solo aplica extra en XXG para adultos
   const precio = isUnitalla
@@ -54,7 +61,6 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
       return;
     }
     
-    // Evitar agregar si la cantidad sigue en 0
     if (cantidad === 0) return;
 
     onAdd({
@@ -69,11 +75,9 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
     setAdded(true);
     setTimeout(() => setAdded(false), 1500);
     
-    // Limpiar campos tras agregar
     setColor('');
-    setCantidad(0); // SE ACTUALIZÓ: Regresa a 0 tras agregar
+    setCantidad(0); 
     
-    // Resetear talla al valor inicial correcto según género
     if (producto.genero === 'Niño') setTalla('CH (4 A)');
     else if (producto.genero === 'Bebé') setTalla('T1');
     else setTalla('MD');
@@ -83,8 +87,9 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
 
   return (
     <div className="bg-white border border-gray-100 rounded-2xl overflow-hidden flex flex-col hover:shadow-md transition-shadow duration-300 group">
+      {/* CONTENEDOR DE IMAGEN */}
       <div className="relative aspect-square bg-gray-50 overflow-hidden">
-        {imgError ? (
+        {imgError || listaImagenes.length === 0 ? (
           <div className="w-full h-full flex items-center justify-center bg-gray-100">
             <div className="text-center">
               <div className="w-16 h-16 mx-auto mb-2 bg-gray-200 rounded-full flex items-center justify-center">
@@ -94,25 +99,41 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
             </div>
           </div>
         ) : (
-          <img
-            src={producto.imagen}
-            alt={producto.nombre}
-            onError={() => setImgError(true)}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          />
+          <div className="w-full h-full relative">
+            {/* Imagen Principal (Frente) */}
+            <img
+              src={listaImagenes[0]}
+              alt={`${producto.nombre} - Vista principal`}
+              onError={() => setImgError(true)}
+              className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-105 ${
+                listaImagenes.length > 1 ? 'group-hover:opacity-0' : ''
+              }`}
+            />
+            
+            {/* Imagen Secundaria (Espalda / Detalle) - Solo se renderiza si hay 2 o más fotos */}
+            {listaImagenes.length > 1 && (
+              <img
+                src={listaImagenes[1]}
+                alt={`${producto.nombre} - Vista alterna`}
+                className="w-full h-full object-cover absolute top-0 left-0 opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+              />
+            )}
+          </div>
         )}
-        <div className="absolute top-3 left-3">
+        
+        <div className="absolute top-3 left-3 z-10">
           <span className="bg-white/90 backdrop-blur-sm text-gray-500 text-xs font-mono px-2 py-0.5 rounded-md border border-gray-100">
             {producto.id}
           </span>
         </div>
-        <div className="absolute top-3 right-3">
+        <div className="absolute top-3 right-3 z-10">
           <span className="bg-white/90 backdrop-blur-sm text-gray-600 text-xs font-medium px-2 py-0.5 rounded-md border border-gray-100">
             {producto.genero}
           </span>
         </div>
       </div>
 
+      {/* DETALLES Y FORMULARIO */}
       <div className="p-4 flex flex-col gap-3 flex-1">
         <div>
           <h3 className="font-bold text-sm text-gray-900 leading-snug">
@@ -141,6 +162,7 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
               {tallasAMostrar.map((t) => (
                 <button
                   key={t}
+                  type="button"
                   onClick={() => setTalla(t as Talla)}
                   className={`px-2.5 py-1 text-xs font-semibold rounded-lg border transition-all duration-150 ${
                     talla === t
@@ -178,6 +200,7 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
           <p className="text-xs font-medium text-gray-400 mb-2 uppercase tracking-wider">Cantidad</p>
           <div className="flex items-center gap-3">
             <button
+              type="button"
               onClick={() => setCantidad((c) => Math.max(0, c - 1))}
               className="w-8 h-8 rounded-lg border border-gray-200 flex items-center justify-center text-gray-600 hover:border-gray-400 hover:bg-gray-50 transition-all"
             >
@@ -196,6 +219,7 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
             />
 
             <button
+              type="button"
               onClick={() => setCantidad((c) => c + 1)}
               className="w-8 h-8 rounded-lg border border-gray-200 flex items-center justify-center text-gray-600 hover:border-gray-400 hover:bg-gray-50 transition-all"
             >
@@ -205,6 +229,7 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
         </div>
 
         <button
+          type="button"
           onClick={handleAdd}
           disabled={cantidad === 0}
           className={`mt-auto w-full py-2.5 rounded-xl text-sm font-semibold tracking-wide transition-all duration-200 flex items-center justify-center gap-2 ${

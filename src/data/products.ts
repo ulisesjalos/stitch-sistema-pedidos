@@ -296,7 +296,7 @@ export const productosCamisas: Producto[] = [
     genero: 'Dama',
     nombre: 'CAMISA GABARDINA MANGA CORTA',
     precios: { base: 290, XXG: 310 },
-    imagen: 'https://images.pexels.com/photos/5698854/pexels-photo-5698854.jpeg?auto=compress&cs=tinysrgb&w=600',
+    imagen: 'https://yazbek.com.mx/cdn/shop/files/D0606-camisa-gabardina-mc-silueta-dama-50algodon-50poliester-azul-francia_3.jpg?v=1734472540',
   },
   {
     id: 'C607',

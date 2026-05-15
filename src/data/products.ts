@@ -216,7 +216,7 @@ export const productosSudaderas: Producto[] = [
     genero: 'Unisex',
     nombre: 'SUDADERA CUELLO REDONDO',
     precios: { base: 240, XXG: 260 },
-    imagen: 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHRzaGlydHxlbnwwfHwwfHx8MA%3D%3D',
+    imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDWl1KGPrJno9-v27QgdC2DpQPrkNLcqbLlg&s',
   },
   {
     id: 'C0701',

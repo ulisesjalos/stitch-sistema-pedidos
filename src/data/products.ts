@@ -26,10 +26,9 @@ export const productosPlayeras: Producto[] = [
   precios: { base: 120, XXG: 140 },
   // REGLA PARA DOBLE FOTO:
   imagenes: [
-    "https://www.moplayeras.com/cdn/shop/files/91931_MF_1_720x.png?v=1682376996", // Foto 1 (Se ve al inicio)
+    "https://www.moplayeras.com/cdn/shop/products/92233_MF_720x.jpg?v=1682367230", // Foto 1 (Se ve al inicio)
     "https://www.moplayeras.com/cdn/shop/products/92233_MF_720x.jpg?v=1682367230" // Foto 2 (Se ve al pasar el mouse)
   ],
-  // ... el resto de tus campos
 },
   {
     id: 'D0300',

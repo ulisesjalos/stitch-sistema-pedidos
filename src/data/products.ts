@@ -261,7 +261,7 @@ export const productosCamisas: Producto[] = [
     genero: 'Caballero',
     nombre: 'CAMISA OXFORD MANGA CORTA',
     precios: { base: 290, XXG: 310 },
-    imagen: 'https://images.pexels.com/photos/5698851/pexels-photo-5698851.jpeg?auto=compress&cs=tinysrgb&w=600',
+    imagen: 'https://yazbek.com.mx/cdn/shop/files/C0604-camisa-oxford-liso-mc-caballero-75algodon-25poliester-blanco_3_1200x1200.jpg?v=1734451685',
   },
   {
     id: 'D604',

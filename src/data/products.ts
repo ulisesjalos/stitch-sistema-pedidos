@@ -20,15 +20,11 @@ export const TALLAS_BEBE: Talla[] = ['T1', 'T2', 'T3'];
 
 export const productosPlayeras: Producto[] = [
   {
-    id: "C0300",
-  nombre: "PLAYERA CABALLERO",
-  genero: "Caballero",
-  precios: { base: 120, XXG: 140 },
-  // REGLA PARA DOBLE FOTO:
-  imagenes: [
-    "https://tu-sitio.com/playera-frente.jpg", // Foto 1 (Se ve al inicio)
-    "https://tu-sitio.com/playera-espalda.jpg" // Foto 2 (Se ve al pasar el mouse)
-  ],
+    id: 'C0300',
+    genero: 'Caballero',
+    nombre: 'PLAYERA CABALLERO',
+    precios: { base: 120, XXG: 140 },
+    imagen: 'https://www.moplayeras.com/cdn/shop/products/92233_MF_720x.jpg?v=1682367230',
   },
   {
     id: 'D0300',

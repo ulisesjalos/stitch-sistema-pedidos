@@ -6,15 +6,15 @@ export default function Navbar() {
 
   return (
     <nav className="bg-white border-b border-gray-100 px-6 py-4 flex items-center justify-between print:hidden">
-      {/* Logo de la marca (Lado izquierdo) */}
+      {/* Logo (Lado Izquierdo) */}
       <div className="font-black text-xl tracking-tighter text-gray-900">
         <Link to="/">STITCH</Link>
       </div>
 
-      {/* Botones de Acción (Lado derecho) */}
+      {/* Acciones de Usuario (Lado Derecho) */}
       <div className="flex items-center gap-4">
         
-        {/* BOTÓN DEL GENERADOR DE INVOICE */}
+        {/* NUEVO BOTÓN: GENERADOR DE INVOICE */}
         <Link 
           to="/invoice" 
           className={`px-3 py-2 rounded-xl text-sm font-semibold flex items-center gap-2 transition-all ${
@@ -24,13 +24,12 @@ export default function Navbar() {
           }`}
         >
           <FileText size={16} />
-          <span className="hidden sm:inline">Generador de Invoice</span>
+          <span className="hidden md:inline">Generador de Invoice</span>
         </Link>
 
-        {/* ICONO DE LA BOLSA DE COMPRAS (Ya existente en tu diseño) */}
+        {/* ICONO DEL CARRITO (Ya lo tienes en tu diseño) */}
         <button className="text-gray-900 p-2 hover:bg-gray-50 rounded-xl relative">
           <ShoppingBag size={20} />
-          {/* Si tienes un contador de productos en el carrito, va aquí */}
         </button>
         
       </div>

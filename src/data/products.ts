@@ -39,7 +39,7 @@ export const productosPlayeras: Producto[] = [
     genero: 'Niño',
     nombre: 'PLAYERA NIÑO',
     precios: { base: 90, XXG: 110 },
-    imagen: 'https://plus.unsplash.com/premium_photo-1691367782367-2bd37f646abc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dHNoaXJ0JTIweW91bmd8ZW58MHx8MHx8fDA%3D',
+    imagen: 'https://www.moplayeras.com/cdn/shop/files/4850Gold_720x.jpg?v=1708553951',
   },
   {
     id: 'B0300',
@@ -53,7 +53,7 @@ export const productosPlayeras: Producto[] = [
     genero: 'Caballero',
     nombre: 'PLAYERA CABALLERO MANGA LARGA',
     precios: { base: 160, XXG: 180 },
-    imagen: 'https://http2.mlstatic.com/D_NQ_NP_2X_898240-MLM97787918996_112025-F-playera-manga-larga-camiseta-hombre-gildan-negra-5400.webp',
+    imagen: 'https://www.moplayeras.com/cdn/shop/files/4501_-_FINE_CHARCOAL_3_268852bc-584a-4dbb-ab72-0ef00e862bbc_720x.png?v=1746549825',
   },
   {
     id: 'D0304',

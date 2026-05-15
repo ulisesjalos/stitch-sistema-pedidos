@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { ShoppingBag } from 'lucide-react';
+import { ShoppingBag, FileText } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import ClientForm from '../components/ClientForm';
 import FilterTabs from '../components/FilterTabs';
 import ProductCard from '../components/ProductCard';
@@ -59,11 +60,21 @@ export default function CatalogPage() {
       <header className="fixed top-0 left-0 right-0 z-40 bg-white border-b border-gray-100 print:hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="h-16 flex items-center justify-between">
-            {/* Logo de STITCH */}
             <div className="font-black text-xl tracking-tighter text-gray-900">STITCH</div>
             
-            {/* Contenedor de Acciones derecho (Solo la bolsa de compras) */}
+            {/* Contenedor de Acciones (Derecha) */}
             <div className="flex items-center gap-4">
+              
+              {/* ENLACE AL GENERADOR DE INVOICE */}
+              <Link
+                to="/invoice"
+                className="px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 bg-gray-100 text-gray-700 hover:bg-gray-900 hover:text-white transition-all"
+              >
+                <FileText size={15} strokeWidth={2} />
+                <span className="hidden sm:inline">Generador de Invoice</span>
+              </Link>
+
+              {/* ICONO DE LA BOLSA DE COMPRAS */}
               <button
                 onClick={() => setCartOpen(true)}
                 className="relative flex items-center gap-1.5 text-gray-700 hover:text-gray-900 transition-colors"
@@ -76,6 +87,7 @@ export default function CatalogPage() {
                   </span>
                 )}
               </button>
+
             </div>
           </div>
 

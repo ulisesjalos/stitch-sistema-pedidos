@@ -46,8 +46,13 @@ const COLORES_CAMISAS = [
 ];
 
 const COLORES_GORRAS = [
-  "Negro", "Marino", "Blanco", "Rojo", "Azul Rey", "Gris", "Kaki", 
+  "Negro", "Marino", "Blanco", "Rojo", "Azul Rey", "Gris", "Kaki",
   "Verde", "Vino", "Negro/Blanco", "Marino/Blanco", "Rojo/Blanco"
+];
+
+const COLORES_ACCESORIOS = [
+  "Blanco", "Negro", "Marino", "Gris", "Rosa Pastel", "Celeste",
+  "Menta", "Amarillo", "Coral", "Beige", "Multicolor"
 ];
 
 export const productosPlayeras: Producto[] = [
@@ -683,7 +688,9 @@ export const productosGorras: Producto[] = [
     ],
     colores: ['Blanco', 'Negro', 'Marino', 'Kaki', 'Rojo', 'Verde Botella', 'Vino']
   }
-  export const productosAccesorios: Producto[] = [
+];
+
+export const productosAccesorios: Producto[] = [
   {
     id: 'TOTE',
     genero: 'Unisex',

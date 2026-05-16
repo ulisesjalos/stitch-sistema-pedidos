@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Plus, Minus, ShoppingBag } from 'lucide-react';
 import type { Producto, Talla } from '../data/products';
 import { TALLAS_ADULTO, TALLAS_NINO, TALLAS_BEBE } from '../data/products';
@@ -23,9 +23,10 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
     ? [...producto.colores].sort((a, b) => a.localeCompare(b)) 
     : ['Blanco', 'Negro', 'Marino'];
 
-  // Identificar imágenes
-  const imagenPrincipal = producto.imagenes?.[0] || producto.imagen;
-  const imagenAlternativa = producto.imagenes?.[1] || null;
+  // Preparar el arreglo completo de imágenes para el carrusel deslizable
+  const listaImagenes = producto.imagenes && producto.imagenes.length > 0 
+    ? producto.imagenes 
+    : [producto.imagen];
 
   // Determinar tallas por género
   const getTallasDisponibles = () => {
@@ -49,7 +50,19 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
   const [added, setAdded] = useState(false);
   const [colorError, setColorError] = useState(false);
   const [imgError, setImgError] = useState(false);
-  const [mostrarSegundaImagen, setMostrarSegundaImagen] = useState(false);
+  
+  // Estados para el control del carrusel de imágenes
+  const [imagenActiva, setImagenActiva] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  // Detecta el deslizamiento con el dedo en móviles
+  const handleScroll = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, clientWidth } = scrollRef.current;
+      const indexElemento = Math.round(scrollLeft / clientWidth);
+      setImagenActiva(indexElemento);
+    }
+  };
 
   // Lógica de precios
   const precio = isUnitalla
@@ -92,11 +105,8 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
   return (
     <div className="bg-white border border-gray-100 rounded-2xl overflow-hidden flex flex-col transform transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-xl hover:border-gray-200 group">
       
-      {/* Contenedor de Imagen */}
-      <div 
-        onClick={() => imagenAlternativa && setMostrarSegundaImagen(!mostrarSegImagen)}
-        className={`relative aspect-square bg-gray-50 overflow-hidden ${imagenAlternativa ? 'cursor-pointer' : ''}`}
-      >
+      {/* Contenedor de Imagen con Carrusel Deslizable */}
+      <div className="relative aspect-square bg-gray-50 overflow-hidden border-b border-gray-50">
         {imgError ? (
           <div className="w-full h-full flex items-center justify-center bg-gray-100">
             <div className="text-center">
@@ -108,33 +118,46 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
           </div>
         ) : (
           <>
-            <img
-              src={imagenPrincipal}
-              alt={producto.nombre}
-              onError={() => setImgError(true)}
-              className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-out ${
-                mostrarSegundaImagen ? 'opacity-0 pointer-events-none' : 'opacity-100'
-              } ${!imagenAlternativa ? 'group-hover:scale-105' : ''}`}
-            />
-            
-            {imagenAlternativa && (
-              <img
-                src={imagenAlternativa}
-                alt={`${producto.nombre} vista alternativa`}
-                className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-out ${
-                  mostrarSegundaImagen ? 'opacity-100' : 'opacity-0 pointer-events-none'
-                }`}
-              />
-            )}
+            {/* Vista deslizable multi-imagen */}
+            <div
+              ref={scrollRef}
+              onScroll={handleScroll}
+              className="flex w-full h-full overflow-x-auto snap-x snap-mandatory scrollbar-none scroll-smooth"
+              style={{ WebkitOverflowScrolling: 'touch' }}
+            >
+              {listaImagenes.map((img, index) => (
+                <div 
+                  key={index} 
+                  className="w-full h-full flex-shrink-0 snap-center flex items-center justify-center p-2"
+                >
+                  <img
+                    src={img}
+                    alt={`${producto.nombre} vista ${index + 1}`}
+                    onError={() => setImgError(true)}
+                    className="max-w-full max-h-full object-contain select-none transition-transform duration-300 group-hover:scale-102"
+                    loading={index === 0 ? "eager" : "lazy"}
+                  />
+                </div>
+              ))}
+            </div>
 
-            {imagenAlternativa && (
-              <div className="absolute bottom-3 right-3 bg-black/50 backdrop-blur-sm text-white text-[10px] px-2 py-0.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none select-none">
-                {mostrarSegundaImagen ? 'Ver principal' : 'Click para ver otra'}
+            {/* Indicadores de bolitas de posición inferiores */}
+            {listaImagenes.length > 1 && (
+              <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-1.5 z-10">
+                {listaImagenes.map((_, index) => (
+                  <div
+                    key={index}
+                    className={`h-1.5 rounded-full transition-all duration-300 ${
+                      imagenActiva === index ? 'w-4 bg-gray-900' : 'w-1.5 bg-gray-300'
+                    }`}
+                  />
+                ))}
               </div>
             )}
           </>
         )}
         
+        {/* Etiquetas de ID y Género */}
         <div className="absolute top-3 left-3 z-10">
           <span className="bg-white/90 backdrop-blur-sm text-gray-500 text-xs font-mono px-2 py-0.5 rounded-md border border-gray-100">
             {producto.id}
@@ -192,7 +215,7 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
           </div>
         )}
 
-        {/* SECCIÓN DE COLORES: Menú Desplegable optimizado para más de 30 opciones */}
+        {/* SECCIÓN DE COLORES */}
         <div>
           <p className="text-xs font-medium text-gray-400 mb-1.5 uppercase tracking-wider">Color</p>
           <div className="relative">
@@ -215,7 +238,6 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
                 </option>
               ))}
             </select>
-            {/* Flecha personalizada del dropdown */}
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-500">
               <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                 <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>

@@ -61,7 +61,7 @@ export const productosPlayeras: Producto[] = [
     genero: 'Caballero',
     nombre: 'PLAYERA CABALLERO',
     precios: { base: 120, XXG: 140 },
-    imagen: 'https://www.moplayeras.com/cdn/shop/products/92233_MF_720x.jpg?v=1682367230',
+    imagen: '/images/PLAYERA CABALLERO.jpg',
     imagenes: [
       'https://www.moplayeras.com/cdn/shop/products/92233_MF_720x.jpg?v=1682367230',
       '/images/PLAYERA CABALLERO.jpg'

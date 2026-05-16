@@ -273,7 +273,7 @@ export const productosDeportiva: Producto[] = [
     genero: 'Caballero',
     nombre: 'PLAYERA DRY FIT CABALLERO',
     precios: { base: 160, XXG: 180 },
-    imagen: 'https://yazbek.com.mx/cdn/shop/files/C0300-playera-pc-cr-mc-caballero-100algodon-negro_3_1200x1200.jpg?v=1734391050',
+    imagen: 'https://yazbek.com.mx/cdn/shop/files/N1302-playera-cr-mc-unisex-nino-100poliester-negro_3_1200x1200.jpg?v=1736268172',
     imagenes: [
       'https://yazbek.com.mx/cdn/shop/files/C0300-playera-pc-cr-mc-caballero-100algodon-negro_3_1200x1200.jpg?v=1734391050',
       'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=600&auto=format&fit=crop&q=80'

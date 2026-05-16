@@ -64,7 +64,7 @@ export const productosPlayeras: Producto[] = [
     imagen: 'https://www.moplayeras.com/cdn/shop/products/92233_MF_720x.jpg?v=1682367230',
     imagenes: [
       'https://www.moplayeras.com/cdn/shop/products/92233_MF_720x.jpg?v=1682367230',
-      '/polo'
+      '/polo.jpg'
     ],
     colores: COLORES_C0300_CUSTOM
   },

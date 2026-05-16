@@ -18,7 +18,11 @@ interface ProductCardProps {
 export default function ProductCard({ producto, onAdd }: ProductCardProps) {
   const isUnitalla = !!producto.unitalla;
 
-  // 1. Determinar qué lista de tallas mostrar según el género
+  // 1. Identificar imágenes (Usa el arreglo nuevo o cae en el fallback tradicional)
+  const imagenPrincipal = producto.imagenes?.[0] || producto.imagen;
+  const imagenAlternativa = producto.imagenes?.[1] || null;
+
+  // Determinar qué lista de tallas mostrar según el género
   const getTallasDisponibles = () => {
     if (producto.genero === 'Niño') return TALLAS_NINO;
     if (producto.genero === 'Bebé') return TALLAS_BEBE;
@@ -27,7 +31,7 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
 
   const tallasAMostrar = getTallasDisponibles();
 
-  // 2. Estado inicial de la talla basado en el género del producto
+  // Estado inicial de la talla basado en el género del producto
   const [talla, setTalla] = useState<Talla>(() => {
     if (producto.genero === 'Niño') return 'CH (4 A)';
     if (producto.genero === 'Bebé') return 'T1';
@@ -43,7 +47,7 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
   // Estado para controlar cuál imagen se muestra al hacer click
   const [mostrarSegundaImagen, setMostrarSegundaImagen] = useState(false);
 
-  // 3. Lógica de precio: Solo aplica extra en XXG para adultos
+  // Lógica de precio: Solo aplica extra en XXG para adultos
   const precio = isUnitalla
     ? producto.precios.base
     : talla === 'XXG'
@@ -82,11 +86,11 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
 
   return (
     <div className="bg-white border border-gray-100 rounded-2xl overflow-hidden flex flex-col transform transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-xl hover:border-gray-200 group">
-      {/* Contenedor de Imagen con Click para alternar e indicaciones visuales */}
+      {/* Contenedor de Imagen con Click para alternar */}
       <div 
-        onClick={() => producto.imagen2 && setMostrarSegundaImagen(!mostrarSegundaImagen)}
+        onClick={() => imagenAlternativa && setMostrarSegundaImagen(!mostrarSegundaImagen)}
         className={`relative aspect-square bg-gray-50 overflow-hidden ${
-          producto.imagen2 ? 'cursor-pointer' : ''
+          imagenAlternativa ? 'cursor-pointer' : ''
         }`}
       >
         {imgError ? (
@@ -102,18 +106,18 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
           <>
             {/* Primera Imagen (Principal) */}
             <img
-              src={producto.imagen}
+              src={imagenPrincipal}
               alt={producto.nombre}
               onError={() => setImgError(true)}
               className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-out ${
                 mostrarSegundaImagen ? 'opacity-0 pointer-events-none' : 'opacity-100'
-              } ${!producto.imagen2 ? 'group-hover:scale-105' : ''}`}
+              } ${!imagenAlternativa ? 'group-hover:scale-105' : ''}`}
             />
             
-            {/* Segunda Imagen (Se activa al dar click) */}
-            {producto.imagen2 && (
+            {/* Segunda Imagen (imagenes[1]) */}
+            {imagenAlternativa && (
               <img
-                src={producto.imagen2}
+                src={imagenAlternativa}
                 alt={`${producto.nombre} vista alternativa`}
                 className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-out ${
                   mostrarSegundaImagen ? 'opacity-100' : 'opacity-0 pointer-events-none'
@@ -121,8 +125,8 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
               />
             )}
 
-            {/* Pequeño indicador visual si tiene una segunda imagen */}
-            {producto.imagen2 && (
+            {/* Indicador visual de interacción */}
+            {imagenAlternativa && (
               <div className="absolute bottom-3 right-3 bg-black/50 backdrop-blur-sm text-white text-[10px] px-2 py-0.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none select-none">
                 {mostrarSegundaImagen ? 'Ver principal' : 'Click para ver otra'}
               </div>

@@ -297,7 +297,7 @@ export const productosDeportiva: Producto[] = [
     genero: 'Niño',
     nombre: 'PLAYERA DRY FIT NIÑO',
     precios: { base: 130, XXG: 150 },
-    imagen: 'https://yazbek.com.mx/cdn/shop/files/N1302-playera-cr-mc-unisex-nino-100poliester-negro_3_1200x1200.jpg?v=1736268172',
+    imagen: 'https://yazbek.com.mx/cdn/shop/files/N1302-playera-cr-mc-unisex-nino-100poliester-rojo_3.jpg?v=1736268192',
     imagenes: [
       'https://yazbek.com.mx/cdn/shop/files/N1302-playera-cr-mc-unisex-nino-100poliester-negro_3_1200x1200.jpg?v=1736268172',
       'https://images.unsplash.com/photo-1471286174243-e85afc3cbdc3?w=600&auto=format&fit=crop&q=80'

@@ -18,11 +18,16 @@ interface ProductCardProps {
 export default function ProductCard({ producto, onAdd }: ProductCardProps) {
   const isUnitalla = !!producto.unitalla;
 
-  // 1. Identificar imágenes (Usa el arreglo nuevo o cae en el fallback tradicional)
+  // Si por error un producto no trae colores, dejamos una lista de respaldo ordenada
+  const coloresDisponibles = producto.colores && producto.colores.length > 0 
+    ? [...producto.colores].sort((a, b) => a.localeCompare(b)) 
+    : ['Blanco', 'Negro', 'Marino'];
+
+  // Identificar imágenes
   const imagenPrincipal = producto.imagenes?.[0] || producto.imagen;
   const imagenAlternativa = producto.imagenes?.[1] || null;
 
-  // Determinar qué lista de tallas mostrar según el género
+  // Determinar tallas por género
   const getTallasDisponibles = () => {
     if (producto.genero === 'Niño') return TALLAS_NINO;
     if (producto.genero === 'Bebé') return TALLAS_BEBE;
@@ -31,23 +36,22 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
 
   const tallasAMostrar = getTallasDisponibles();
 
-  // Estado inicial de la talla basado en el género del producto
+  // Estados del formulario
   const [talla, setTalla] = useState<Talla>(() => {
     if (producto.genero === 'Niño') return 'CH (4 A)';
     if (producto.genero === 'Bebé') return 'T1';
     return 'MD';
   });
 
-  const [color, setColor] = useState('');
+  // Estado del color (inicia vacío para forzar la selección manual)
+  const [colorSelected, setColorSelected] = useState<string>('');
   const [cantidad, setCantidad] = useState(0); 
   const [added, setAdded] = useState(false);
   const [colorError, setColorError] = useState(false);
   const [imgError, setImgError] = useState(false);
-  
-  // Estado para controlar cuál imagen se muestra al hacer click
   const [mostrarSegundaImagen, setMostrarSegundaImagen] = useState(false);
 
-  // Lógica de precio: Solo aplica extra en XXG para adultos
+  // Lógica de precios
   const precio = isUnitalla
     ? producto.precios.base
     : talla === 'XXG'
@@ -55,7 +59,7 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
       : producto.precios.base;
 
   function handleAdd() {
-    if (!color.trim()) {
+    if (!colorSelected) {
       setColorError(true);
       return;
     }
@@ -66,7 +70,7 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
       productoId: producto.id,
       nombre: producto.nombre,
       talla: isUnitalla ? null : talla,
-      color: color.trim(),
+      color: colorSelected,
       cantidad,
       precioUnitario: precio,
     });
@@ -74,7 +78,8 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
     setAdded(true);
     setTimeout(() => setAdded(false), 1500);
     
-    setColor('');
+    // Resetear formulario para la siguiente captura
+    setColorSelected('');
     setCantidad(0);
     
     if (producto.genero === 'Niño') setTalla('CH (4 A)');
@@ -86,12 +91,11 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
 
   return (
     <div className="bg-white border border-gray-100 rounded-2xl overflow-hidden flex flex-col transform transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-xl hover:border-gray-200 group">
-      {/* Contenedor de Imagen con Click para alternar */}
+      
+      {/* Contenedor de Imagen */}
       <div 
-        onClick={() => imagenAlternativa && setMostrarSegundaImagen(!mostrarSegundaImagen)}
-        className={`relative aspect-square bg-gray-50 overflow-hidden ${
-          imagenAlternativa ? 'cursor-pointer' : ''
-        }`}
+        onClick={() => imagenAlternativa && setMostrarSegundaImagen(!mostrarSegImagen)}
+        className={`relative aspect-square bg-gray-50 overflow-hidden ${imagenAlternativa ? 'cursor-pointer' : ''}`}
       >
         {imgError ? (
           <div className="w-full h-full flex items-center justify-center bg-gray-100">
@@ -104,7 +108,6 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
           </div>
         ) : (
           <>
-            {/* Primera Imagen (Principal) */}
             <img
               src={imagenPrincipal}
               alt={producto.nombre}
@@ -114,7 +117,6 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
               } ${!imagenAlternativa ? 'group-hover:scale-105' : ''}`}
             />
             
-            {/* Segunda Imagen (imagenes[1]) */}
             {imagenAlternativa && (
               <img
                 src={imagenAlternativa}
@@ -125,7 +127,6 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
               />
             )}
 
-            {/* Indicador visual de interacción */}
             {imagenAlternativa && (
               <div className="absolute bottom-3 right-3 bg-black/50 backdrop-blur-sm text-white text-[10px] px-2 py-0.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none select-none">
                 {mostrarSegundaImagen ? 'Ver principal' : 'Click para ver otra'}
@@ -146,6 +147,7 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
         </div>
       </div>
 
+      {/* Cuerpo de la Tarjeta */}
       <div className="p-4 flex flex-col gap-3 flex-1">
         <div>
           <h3 className="font-bold text-sm text-gray-900 leading-snug">
@@ -167,13 +169,15 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
           )}
         </div>
 
+        {/* Sección de Tallas */}
         {!isUnitalla && (
           <div>
-            <p className="text-xs font-medium text-gray-400 mb-2 uppercase tracking-wider">Talla</p>
+            <p className="text-xs font-medium text-gray-400 mb-1.5 uppercase tracking-wider">Talla</p>
             <div className="flex gap-1.5 flex-wrap">
               {tallasAMostrar.map((t) => (
                 <button
                   key={t}
+                  type="button"
                   onClick={() => setTalla(t as Talla)}
                   className={`px-2.5 py-1 text-xs font-semibold rounded-lg border transition-all duration-150 ${
                     talla === t
@@ -188,29 +192,47 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
           </div>
         )}
 
+        {/* SECCIÓN DE COLORES: Menú Desplegable optimizado para más de 30 opciones */}
         <div>
-          <p className="text-xs font-medium text-gray-400 mb-2 uppercase tracking-wider">Color</p>
-          <input
-            type="text"
-            value={color}
-            onChange={(e) => {
-              setColor(e.target.value);
-              if (e.target.value.trim()) setColorError(false);
-            }}
-            placeholder="Ej. Marino, Blanco, Negro..."
-            className={`w-full border rounded-lg px-3 py-2 text-sm text-gray-800 placeholder-gray-300 outline-none transition-colors focus:border-gray-400 ${
-              colorError ? 'border-red-300 bg-red-50' : 'border-gray-200'
-            }`}
-          />
+          <p className="text-xs font-medium text-gray-400 mb-1.5 uppercase tracking-wider">Color</p>
+          <div className="relative">
+            <select
+              value={colorSelected}
+              onChange={(e) => {
+                setColorSelected(e.target.value);
+                setColorError(false);
+              }}
+              className={`w-full bg-gray-50 border rounded-lg px-3 py-2 text-xs font-medium text-gray-800 outline-none transition-all cursor-pointer appearance-none focus:border-gray-400 focus:bg-white ${
+                colorError ? 'border-red-300 bg-red-50 text-red-900' : 'border-gray-200'
+              }`}
+            >
+              <option value="" disabled hidden>
+                -- Selecciona un color ({coloresDisponibles.length} disponibles) --
+              </option>
+              {coloresDisponibles.map((col) => (
+                <option key={col} value={col}>
+                  {col}
+                </option>
+              ))}
+            </select>
+            {/* Flecha personalizada del dropdown */}
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-500">
+              <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+              </svg>
+            </div>
+          </div>
           {colorError && (
-            <p className="text-xs text-red-400 mt-1">Escribe el color deseado</p>
+            <p className="text-xs text-red-500 font-semibold mt-1">Por favor elige un color</p>
           )}
         </div>
 
+        {/* Sección de Cantidad */}
         <div>
-          <p className="text-xs font-medium text-gray-400 mb-2 uppercase tracking-wider">Cantidad</p>
+          <p className="text-xs font-medium text-gray-400 mb-1.5 uppercase tracking-wider">Cantidad</p>
           <div className="flex items-center gap-3">
             <button
+              type="button"
               onClick={() => setCantidad((c) => Math.max(0, c - 1))}
               className="w-8 h-8 rounded-lg border border-gray-200 flex items-center justify-center text-gray-600 hover:border-gray-400 hover:bg-gray-50 transition-all"
             >
@@ -229,6 +251,7 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
             />
 
             <button
+              type="button"
               onClick={() => setCantidad((c) => c + 1)}
               className="w-8 h-8 rounded-lg border border-gray-200 flex items-center justify-center text-gray-600 hover:border-gray-400 hover:bg-gray-50 transition-all"
             >
@@ -237,7 +260,9 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
           </div>
         </div>
 
+        {/* Botón de envío */}
         <button
+          type="button"
           onClick={handleAdd}
           disabled={cantidad === 0}
           className={`mt-auto w-full py-2.5 rounded-xl text-sm font-semibold tracking-wide transition-all duration-200 flex items-center justify-center gap-2 ${
@@ -248,9 +273,7 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
               : 'bg-gray-900 text-white hover:bg-gray-700 active:scale-95'
           }`}
         >
-          {added ? (
-            <>Agregado!</>
-          ) : (
+          {added ? '¡Agregado!' : (
             <>
               <ShoppingBag size={15} />
               Agregar al carrito

@@ -58,8 +58,8 @@ export const productosPlayeras: Producto[] = [
     precios: { base: 120, XXG: 140 },
     imagen: 'https://www.moplayeras.com/cdn/shop/products/92233_MF_720x.jpg?v=1682367230',
     imagenes: [
-      'https://http2.mlstatic.com/D_NQ_NP_622588-MLM83756769490_042025-O-playera-hombre-peso-completo-manga-corta-3xl-3xg-yazbek.webp',
-      'https://secuenciasolutions.com.mx/2020/wp-content/uploads/2024/08/PLAYERA-ADULTO-MampO-MOD.-4800-COLORES-COLORES.png'
+      'https://www.moplayeras.com/cdn/shop/products/92233_MF_720x.jpg?v=1682367230',
+      'https://http2.mlstatic.com/D_NQ_NP_622588-MLM83756769490_042025-O-playera-hombre-peso-completo-manga-corta-3xl-3xg-yazbek.webp.png'
     ],
     colores: COLORES_C0300_CUSTOM
   },

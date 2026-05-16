@@ -1,6 +1,6 @@
 export type Genero = 'Caballero' | 'Dama' | 'Juvenil' | 'Niño' | 'Bebé' | 'Unisex';
 export type Talla = 'CH' | 'MD' | 'GR' | 'XG' | 'XXG' | 'CH (4 A)' | 'MD (6 A)' | 'GD (8 A)' | 'XG (10 A)' | 'T1' | 'T2' | 'T3';
-export type Categoria = 'Playeras' | 'Polos' | 'Deportiva' | 'Sudaderas' | 'Camisas' | 'Gorras';
+export type Categoria = 'Playeras' | 'Polos' | 'Deportiva' | 'Sudaderas' | 'Camisas' | 'Gorras' | 'Accesorios';
 
 export interface Producto {
   id: string;

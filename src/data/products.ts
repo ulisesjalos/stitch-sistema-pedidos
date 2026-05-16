@@ -683,6 +683,167 @@ export const productosGorras: Producto[] = [
     ],
     colores: ['Blanco', 'Negro', 'Marino', 'Kaki', 'Rojo', 'Verde Botella', 'Vino']
   }
+  export const productosAccesorios: Producto[] = [
+  {
+    id: 'TOTE',
+    genero: 'Unisex',
+    nombre: 'TOTEBAG',
+    precios: { base: 150, XXG: 150 },
+    imagen: 'https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&auto=format&fit=crop&q=80',
+    imagenes: ['https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&auto=format&fit=crop&q=80'],
+    unitalla: true,
+    colores: COLORES_ACCESORIOS
+  },
+  {
+    id: 'PANECO',
+    genero: 'Unisex',
+    nombre: 'PAÑALERO ECONÓMICO',
+    precios: { base: 150, XXG: 150 },
+    imagen: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&auto=format&fit=crop&q=80',
+    imagenes: ['https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&auto=format&fit=crop&q=80'],
+    unitalla: true,
+    colores: COLORES_ACCESORIOS
+  },
+  {
+    id: 'COBMSU',
+    genero: 'Unisex',
+    nombre: 'COBIJAS MUSELINA',
+    precios: { base: 250, XXG: 250 },
+    imagen: 'https://images.unsplash.com/photo-1584290867415-527a8475726d?w=600&auto=format&fit=crop&q=80',
+    imagenes: ['https://images.unsplash.com/photo-1584290867415-527a8475726d?w=600&auto=format&fit=crop&q=80'],
+    unitalla: true,
+    colores: COLORES_ACCESORIOS
+  },
+  {
+    id: 'COBTJD',
+    genero: 'Unisex',
+    nombre: 'COBIJAS TEJIDAS',
+    precios: { base: 250, XXG: 250 },
+    imagen: 'https://images.unsplash.com/photo-1580301762395-21ce84d00bc6?w=600&auto=format&fit=crop&q=80',
+    imagenes: ['https://images.unsplash.com/photo-1580301762395-21ce84d00bc6?w=600&auto=format&fit=crop&q=80'],
+    unitalla: true,
+    colores: COLORES_ACCESORIOS
+  },
+  {
+    id: 'PANMSL',
+    genero: 'Unisex',
+    nombre: 'PAÑALERO MUSELINA',
+    precios: { base: 250, XXG: 250 },
+    imagen: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&auto=format&fit=crop&q=80',
+    imagenes: ['https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&auto=format&fit=crop&q=80'],
+    unitalla: true,
+    colores: COLORES_ACCESORIOS
+  },
+  {
+    id: 'BABMSL',
+    genero: 'Unisex',
+    nombre: 'BABERO MUSELINA',
+    precios: { base: 50, XXG: 50 },
+    imagen: 'https://images.unsplash.com/photo-1617331140180-e8262094733a?w=600&auto=format&fit=crop&q=80',
+    imagenes: ['https://images.unsplash.com/photo-1617331140180-e8262094733a?w=600&auto=format&fit=crop&q=80'],
+    unitalla: true,
+    colores: COLORES_ACCESORIOS
+  },
+  {
+    id: 'SAB',
+    genero: 'Unisex',
+    nombre: 'SABANITAS CUALQUIER TELA',
+    precios: { base: 250, XXG: 250 },
+    imagen: 'https://images.unsplash.com/photo-1543294001-f7cbfe92237e?w=600&auto=format&fit=crop&q=80',
+    imagenes: ['https://images.unsplash.com/photo-1543294001-f7cbfe92237e?w=600&auto=format&fit=crop&q=80'],
+    unitalla: true,
+    colores: COLORES_ACCESORIOS
+  },
+  {
+    id: 'MANPER',
+    genero: 'Unisex',
+    nombre: 'MANTA PERSONALIZADA',
+    precios: { base: 800, XXG: 800 },
+    imagen: 'https://images.unsplash.com/photo-1600121848594-d8644e57abab?w=600&auto=format&fit=crop&q=80',
+    imagenes: ['https://images.unsplash.com/photo-1600121848594-d8644e57abab?w=600&auto=format&fit=crop&q=80'],
+    unitalla: true,
+    colores: COLORES_ACCESORIOS
+  },
+  {
+    id: 'ESTU',
+    genero: 'Unisex',
+    nombre: 'ESTUCHE',
+    precios: { base: 50, XXG: 50 },
+    imagen: 'https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=600&auto=format&fit=crop&q=80',
+    imagenes: ['https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=600&auto=format&fit=crop&q=80'],
+    unitalla: true,
+    colores: COLORES_ACCESORIOS
+  },
+  {
+    id: 'MINITOTE',
+    genero: 'Unisex',
+    nombre: 'MINITOTEBAG',
+    precios: { base: 80, XXG: 80 },
+    imagen: 'https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&auto=format&fit=crop&q=80',
+    imagenes: ['https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&auto=format&fit=crop&q=80'],
+    unitalla: true,
+    colores: COLORES_ACCESORIOS
+  },
+  {
+    id: 'COBMINK',
+    genero: 'Unisex',
+    nombre: 'COBIJA MINK',
+    precios: { base: 200, XXG: 200 },
+    imagen: 'https://images.unsplash.com/photo-1584290867415-527a8475726d?w=600&auto=format&fit=crop&q=80',
+    imagenes: ['https://images.unsplash.com/photo-1584290867415-527a8475726d?w=600&auto=format&fit=crop&q=80'],
+    unitalla: true,
+    colores: COLORES_ACCESORIOS
+  },
+  {
+    id: 'TERM20',
+    genero: 'Unisex',
+    nombre: 'TERMO 20 OZ',
+    precios: { base: 180, XXG: 180 },
+    imagen: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600&auto=format&fit=crop&q=80',
+    imagenes: ['https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600&auto=format&fit=crop&q=80'],
+    unitalla: true,
+    colores: COLORES_ACCESORIOS
+  },
+  {
+    id: 'TERM30',
+    genero: 'Unisex',
+    nombre: 'TERMO 30 OZ',
+    precios: { base: 200, XXG: 200 },
+    imagen: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600&auto=format&fit=crop&q=80',
+    imagenes: ['https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600&auto=format&fit=crop&q=80'],
+    unitalla: true,
+    colores: COLORES_ACCESORIOS
+  },
+  {
+    id: 'MANDTAQ',
+    genero: 'Unisex',
+    nombre: 'MANDIL TAQUERO',
+    precios: { base: 120, XXG: 120 },
+    imagen: 'https://images.unsplash.com/photo-1581622558663-b2e33377dfb2?w=600&auto=format&fit=crop&q=80',
+    imagenes: ['https://images.unsplash.com/photo-1581622558663-b2e33377dfb2?w=600&auto=format&fit=crop&q=80'],
+    unitalla: true,
+    colores: COLORES_ACCESORIOS
+  },
+  {
+    id: 'MANDEDU',
+    genero: 'Unisex',
+    nombre: 'MANDIL EDUCADORA',
+    precios: { base: 160, XXG: 160 },
+    imagen: 'https://images.unsplash.com/photo-1581622558663-b2e33377dfb2?w=600&auto=format&fit=crop&q=80',
+    imagenes: ['https://images.unsplash.com/photo-1581622558663-b2e33377dfb2?w=600&auto=format&fit=crop&q=80'],
+    unitalla: true,
+    colores: COLORES_ACCESORIOS
+  },
+  {
+    id: 'BATAMED',
+    genero: 'Unisex',
+    nombre: 'BATA MÉDICA',
+    precios: { base: 250, XXG: 250 },
+    imagen: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600&auto=format&fit=crop&q=80',
+    imagenes: ['https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600&auto=format&fit=crop&q=80'],
+    unitalla: true,
+    colores: COLORES_ACCESORIOS
+  }
 ];
 
 export const productosPorCategoria: Record<Categoria, Producto[]> = {
@@ -692,17 +853,19 @@ export const productosPorCategoria: Record<Categoria, Producto[]> = {
   Sudaderas: productosSudaderas,
   Camisas: productosCamisas,
   Gorras: productosGorras,
+  Accesorios: productosAccesorios,
 };
 
-export const categorias: Categoria[] = ['Playeras', 'Polos', 'Deportiva', 'Sudaderas', 'Camisas', 'Gorras'];
+export const categorias: Categoria[] = ['Playeras', 'Polos', 'Deportiva', 'Sudaderas', 'Camisas', 'Gorras', 'Accesorios'];
 
 export const generosPorCategoria: Record<Categoria, string[]> = {
-  Playeras: ['Todos', 'Caballero', 'Dama', 'Juvenil', 'Niño', 'Bebé', 'Unisex'],
-  Polos: ['Todos', 'Caballero', 'Dama', 'Niño'],
-  Deportiva: ['Todos', 'Caballero', 'Dama', 'Niño'],
-  Sudaderas: ['Todos', 'Unisex', 'Niño'],
-  Camisas: ['Todos', 'Caballero', 'Dama'],
-  Gorras: ['Todos'],
+  Playeras: ['Caballero', 'Dama', 'Juvenil', 'Niño', 'Bebé'],
+  Polos: ['Caballero', 'Dama', 'Niño'],
+  Deportiva: ['Caballero', 'Dama', 'Niño'],
+  Sudaderas: ['Unisex', 'Niño'],
+  Camisas: ['Caballero', 'Dama'],
+  Gorras: ['Unisex'],
+  Accesorios: ['Unisex']
 };
 
 export const productos = productosPlayeras;

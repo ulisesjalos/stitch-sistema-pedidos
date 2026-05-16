@@ -78,7 +78,7 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
   }
 
   return (
-    <div className="bg-white border border-gray-100 rounded-2xl overflow-hidden flex flex-col hover:shadow-xl hover:-translate-y-1 hover:border-gray-200 transition-all duration-300 group">
+    <div className="bg-white border border-gray-100 rounded-2xl overflow-hidden flex flex-col transform transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-xl hover:border-gray-200 group">
       <div className="relative aspect-square bg-gray-50 overflow-hidden">
         {imgError ? (
           <div className="w-full h-full flex items-center justify-center bg-gray-100">
@@ -94,7 +94,7 @@ export default function ProductCard({ producto, onAdd }: ProductCardProps) {
             src={producto.imagen}
             alt={producto.nombre}
             onError={() => setImgError(true)}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
           />
         )}
         <div className="absolute top-3 left-3">

@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Producto } from './productos'; // Ajusta la ruta según tus archivos
+import { Producto } from '.data/productos'; // Ajusta la ruta según tus archivos
 
 interface GaleriaProductoProps {
   producto: Producto;

@@ -11,7 +11,7 @@ export interface Producto {
   imagenes: string[]; 
   unitalla?: boolean;
   descripcion?: string;
-  colores: string[]; // NUEVO: Listado dinámico de colores por modelo
+  colores: string[];
 }
 
 // --- Listas de tallas por tipo de producto ---
@@ -19,27 +19,35 @@ export const TALLAS_ADULTO: Talla[] = ['CH', 'MD', 'GR', 'XG', 'XXG'];
 export const TALLAS_NINO: Talla[] = ['CH (4 A)', 'MD (6 A)', 'GD (8 A)', 'XG (10 A)'];
 export const TALLAS_BEBE: Talla[] = ['T1', 'T2', 'T3'];
 
-// --- Listas Maestras de Colores de Respaldo por tipo de tela ---
-const COLORES_ALGODON_TOP = [
-  'Blanco', 'Negro', 'Marino', 'Gris Oxford', 'Gris Jaspe', 'Rojo', 'Azul Rey', 'Verde Bandera', 
-  'Verde Milicia', 'Kaki', 'Chocolate', 'Amarillo Huevo', 'Amarillo Canario', 'Naranja', 'Turquesa', 
-  'Celeste', 'Royal', 'Coral', 'Fucsia', 'Rosa Pastel', 'Morado', 'Lila', 'Vino', 'Aqua', 
-  'Ladrillo', 'Verde Limón', 'Menta', 'Café', 'Beige', 'Arena', 'Plata', 'Carbono'
+// --- Listas Maestras de Colores Oficiales Yazbek ---
+const COLORES_C0300_CUSTOM = [
+  "Blanco", "Gris Jaspe", "Beige", "Celeste", "Caribe", "Plata", 
+  "Azul Claro", "Rosa Pastel", "Lavanda", "Aqua", "Coral", "Salmón", 
+  "Mango", "Delfín", "Canario", "Lima", "Morado", "Ocre", "Fucsia", 
+  "Naranja", "Turquesa", "Rojo", "Marino", "Negro", "Olivo", "Ladrillo", 
+  "Jade", "Royal (Azul Rey)", "Chocolate", "Carbón", "Marrón", 
+  "Verde Bosque", "Amarillo", "Fiusha", "Azul Eléctrico", "Arena"
+];
+
+const COLORES_ALGODON_GENERAL = [
+  "Blanco", "Negro", "Gris Jaspe", "Marino", "Royal", "Rojo", 
+  "Turquesa", "Jade", "Carbon", "Morado", "Naranja", "Fucsia", 
+  "Lima", "Arena", "Rosa Pastel", "Celeste"
 ];
 
 const COLORES_POLIESTER_DRY = [
-  'Blanco', 'Negro', 'Marino', 'Rojo', 'Azul Rey', 'Gris Oxford', 'Neon Verde', 'Neon Naranja', 
-  'Neon Amarillo', 'Neon Rosa', 'Vino', 'Turquesa', 'Royal', 'Plata', 'Fucsia', 'Celeste'
+  "Blanco", "Negro", "Marino", "Rojo", "Azul Rey", "Gris Oxford", 
+  "Neon Verde", "Neon Naranja", "Neon Amarillo", "Neon Rosa", "Vino", "Turquesa", "Plata"
 ];
 
 const COLORES_CAMISAS = [
-  'Blanco', 'Negro', 'Marino', 'Azul Cielo', 'Gris', 'Rosa', 'Kaki', 'Rojo', 'Vino', 
-  'Verde Olivo', 'Francia', 'Indigo Claro', 'Indigo Oscuro', 'Palo de Rosa', 'Beige'
+  "Blanco", "Negro", "Marino", "Azul Cielo", "Gris", "Rosa", "Kaki", 
+  "Rojo", "Vino", "Verde Olivo", "Francia"
 ];
 
 const COLORES_GORRAS = [
-  'Negro', 'Marino', 'Blanco', 'Rojo', 'Azul Rey', 'Gris', 'Kaki', 'Verde', 'Vino', 
-  'Negro/Blanco', 'Marino/Blanco', 'Rojo/Blanco', 'Azul/Blanco', 'Camuflaje'
+  "Negro", "Marino", "Blanco", "Rojo", "Azul Rey", "Gris", "Kaki", 
+  "Verde", "Vino", "Negro/Blanco", "Marino/Blanco", "Rojo/Blanco"
 ];
 
 export const productosPlayeras: Producto[] = [
@@ -53,7 +61,7 @@ export const productosPlayeras: Producto[] = [
       'https://www.moplayeras.com/cdn/shop/products/92233_MF_720x.jpg?v=1682367230',
       'https://secuenciasolutions.com.mx/2020/wp-content/uploads/2024/08/PLAYERA-ADULTO-MampO-MOD.-4800-COLORES-COLORES.png'
     ],
-    colores: COLORES_ALGODON_TOP
+    colores: COLORES_C0300_CUSTOM
   },
   {
     id: 'D0300',
@@ -65,7 +73,11 @@ export const productosPlayeras: Producto[] = [
       'https://www.moplayeras.com/cdn/shop/files/92018M_O4513FineTurquoise10_720x.jpg?v=1682378054',
       'https://images.unsplash.com/photo-1554568218-0f1715e72254?w=600&auto=format&fit=crop&q=80'
     ],
-    colores: COLORES_ALGODON_TOP
+    colores: [
+      "Blanco", "Negro", "Gris Jaspe", "Marino", "Royal", "Rojo", 
+      "Turquesa", "Jade", "Carbon", "Morado", "Canario", "Coral", 
+      "Aqua", "Rosa Pastel", "Azul Claro", "Fucsia", "Lima", "Naranja"
+    ]
   },
   {
     id: 'J0300',
@@ -77,7 +89,7 @@ export const productosPlayeras: Producto[] = [
       'https://www.moplayeras.com/cdn/shop/files/91931_MF_1_720x.png?v=1682376996',
       'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600&auto=format&fit=crop&q=80'
     ],
-    colores: COLORES_ALGODON_TOP
+    colores: COLORES_ALGODON_GENERAL
   },
   {
     id: 'N0300',
@@ -89,19 +101,19 @@ export const productosPlayeras: Producto[] = [
       'https://www.moplayeras.com/cdn/shop/files/4850Gold_720x.jpg?v=1708553951',
       'https://images.unsplash.com/photo-1519457431-44ccd64a579b?w=600&auto=format&fit=crop&q=80'
     ],
-    colores: COLORES_ALGODON_TOP
+    colores: COLORES_ALGODON_GENERAL
   },
   {
     id: 'B0300',
     genero: 'Bebé',
     nombre: 'PLAYERA BEBE',
     precios: { base: 90, XXG: 110 },
-    imagen: 'https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2hpcnQlMjBiYWJ5fGVufDB8fDB8fHww',
+    imagen: 'https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?w=500&auto=format&fit=crop&q=60',
     imagenes: [
-      'https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2hpcnQlMjBiYWJ5fGVufDB8fDB8fHww',
+      'https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?w=500&auto=format&fit=crop&q=60',
       'https://images.unsplash.com/photo-1519689680058-324335c77eba?w=600&auto=format&fit=crop&q=80'
     ],
-    colores: ['Blanco', 'Negro', 'Marino', 'Rojo', 'Azul Rey', 'Celeste', 'Rosa Pastel', 'Amarillo Canario', 'Mint']
+    colores: ["Blanco", "Negro", "Marino", "Royal", "Rojo", "Rosa Pastel", "Celeste", "Amarillo Canario", "Aqua"]
   },
   {
     id: 'C0304',
@@ -113,7 +125,7 @@ export const productosPlayeras: Producto[] = [
       'https://www.moplayeras.com/cdn/shop/files/4501_-_FINE_CHARCOAL_3_268852bc-584a-4dbb-ab72-0ef00e862bbc_720x.png?v=1746549825',
       'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=600&auto=format&fit=crop&q=80'
     ],
-    colores: ['Blanco', 'Negro', 'Marino', 'Gris Oxford', 'Gris Jaspe', 'Rojo', 'Azul Rey', 'Vino', 'Verde Militar']
+    colores: ["Blanco", "Negro", "Marino", "Gris Oxford", "Gris Jaspe", "Rojo", "Azul Rey", "Vino", "Verde Militar"]
   },
   {
     id: 'D0304',
@@ -125,7 +137,7 @@ export const productosPlayeras: Producto[] = [
       'https://allmade.com/cdn/shop/files/womens-tri-blend-long-sleeve-tee-653451_900x.jpg?v=1714411225',
       'https://images.unsplash.com/photo-1551799517-eb8f03cb5e6a?w=600&auto=format&fit=crop&q=80'
     ],
-    colores: ['Blanco', 'Negro', 'Marino', 'Gris Oxford', 'Rojo', 'Azul Rey', 'Vino', 'Fucsia', 'Coral']
+    colores: ["Blanco", "Negro", "Marino", "Gris Oxford", "Rojo", "Azul Rey", "Vino", "Fucsia", "Coral"]
   },
   {
     id: 'N0304',
@@ -137,7 +149,7 @@ export const productosPlayeras: Producto[] = [
       'https://cdn.shopify.com/s/files/1/0304/3013/4331/files/the-classic-long-sleeve-t-shirt_sunflower_main.jpg?v=1751400689',
       'https://images.shopify.com/photo-1602810318383-e386cc2a3ccf?w=600&auto=format&fit=crop&q=80'
     ],
-    colores: ['Blanco', 'Negro', 'Marino', 'Rojo', 'Azul Rey', 'Amarillo Huevo', 'Gris Jaspe']
+    colores: ["Blanco", "Negro", "Marino", "Rojo", "Azul Rey", "Amarillo Huevo", "Gris Jaspe"]
   },
   {
     id: 'TSUAOVER',
@@ -149,7 +161,7 @@ export const productosPlayeras: Producto[] = [
       'https://s3-eu-west-1.amazonaws.com/resources.jhktshirt.com/pictures/catalogue/jhktshirt_tsuaover240_0.jpg',
       'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&auto=format&fit=crop&q=80'
     ],
-    colores: ['Negro', 'Blanco', 'Kaki', 'Verde Militar', 'Chocolate', 'Gris Oxford', 'Azul Acero', 'Vino']
+    colores: ["Negro", "Blanco", "Kaki", "Verde Militar", "Chocolate", "Gris Oxford", "Azul Acero", "Vino"]
   }
 ];
 
@@ -164,7 +176,7 @@ export const productosPolos: Producto[] = [
       'https://www.moplayeras.com/cdn/shop/files/92516_MF_720x.jpg?v=1682368564',
       'https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=600&auto=format&fit=crop&q=80'
     ],
-    colores: COLORES_ALGODON_TOP
+    colores: COLORES_ALGODON_GENERAL
   },
   {
     id: 'D0550',
@@ -176,7 +188,10 @@ export const productosPolos: Producto[] = [
       'https://www.moplayeras.com/cdn/shop/products/92550_MF-MARINOBRILLANTE_c1607e52-e427-4708-aa8a-ee9beafaf406_720x.jpg?v=1682368767',
       'https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=600&auto=format&fit=crop&q=80'
     ],
-    colores: COLORES_ALGODON_TOP
+    colores: [
+      "Blanco", "Negro", "Gris Jaspe", "Marino", "Royal", "Rojo", 
+      "Turquesa", "Jade", "Carbon", "Morado", "Canario", "Coral", "Fucsia", "Lima"
+    ]
   },
   {
     id: 'N0501',
@@ -188,7 +203,7 @@ export const productosPolos: Producto[] = [
       'https://yazbek.com.mx/cdn/shop/files/N0501-playera-polo-mc-unisex-nino-100algodon-marino_3_1200x1200.jpg?v=1736278237',
       'https://images.unsplash.com/photo-1611428813653-aa606c998586?w=600&auto=format&fit=crop&q=80'
     ],
-    colores: ['Blanco', 'Negro', 'Marino', 'Rojo', 'Azul Rey', 'Gris Jaspe', 'Verde Bandera', 'Amarillo Huevo', 'Celeste']
+    colores: ["Blanco", "Negro", "Marino", "Rojo", "Azul Rey", "Gris Jaspe", "Verde Bandera", "Amarillo Huevo", "Celeste"]
   },
   {
     id: '9005C',
@@ -200,7 +215,7 @@ export const productosPolos: Producto[] = [
       'https://eurocotton.vtexassets.com/arquivos/ids/164197/TPOLPRCROJ-2.jpg?v=638855482051430000',
       'https://images.unsplash.com/photo-1603252109303-2751441dd157?w=600&auto=format&fit=crop&q=80'
     ],
-    colores: COLORES_ALGODON_TOP
+    colores: COLORES_ALGODON_GENERAL
   },
   {
     id: '9005D',
@@ -212,7 +227,7 @@ export const productosPolos: Producto[] = [
       'https://www.moplayeras.com/cdn/shop/products/92530_MF-AZULREYBRILLANTE_fec322f9-4e1f-4ccb-b58a-1a059f3fa0cb_2048x.jpg?v=1682368687',
       'https://images.unsplash.com/photo-1562157873-818bc0726f68?w=600&auto=format&fit=crop&q=80'
     ],
-    colores: COLORES_ALGODON_TOP
+    colores: COLORES_ALGODON_GENERAL
   },
   {
     id: '9008C',
@@ -386,7 +401,7 @@ export const productosSudaderas: Producto[] = [
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDWl1KGPrJno9-v27QgdC2DpQPrkNLcqbLlg&s',
       'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=600&auto=format&fit=crop&q=80'
     ],
-    colores: COLORES_ALGODON_TOP
+    colores: ["Blanco", "Negro", "Marino", "Gris Oxford", "Gris Jaspe", "Rojo", "Azul Rey", "Vino", "Verde Bandera"]
   },
   {
     id: 'C0701',
@@ -398,7 +413,7 @@ export const productosSudaderas: Producto[] = [
       'https://passionpromocional.com/cdn/shop/products/Diapositiva10_e1c3de1f-f19a-4203-9583-3cb2b784601a_800x.jpg?v=1628981233',
       'https://images.unsplash.com/photo-1544441893-675973e31985?w=600&auto=format&fit=crop&q=80'
     ],
-    colores: COLORES_ALGODON_TOP
+    colores: ["Blanco", "Negro", "Marino", "Gris Oxford", "Gris Jaspe", "Rojo", "Azul Rey", "Vino", "Naranja", "Fucsia", "Verde Bandera"]
   },
   {
     id: 'C0702',
@@ -690,7 +705,6 @@ export const generosPorCategoria: Record<Categoria, string[]> = {
   Gorras: ['Todos'],
 };
 
-// Backward compat
 export const productos = productosPlayeras;
 export const filtros = generosPorCategoria.Playeras as unknown as readonly string[];
 export type Filtro = string;

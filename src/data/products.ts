@@ -50,6 +50,10 @@ const COLORES_GORRAS = [
   "Verde", "Vino", "Negro/Blanco", "Marino/Blanco", "Rojo/Blanco"
 ];
 
+const COLORES_ACCESORIOS = [
+  "Negro", "Marino", "Blanco"
+];
+
 export const productosPlayeras: Producto[] = [
   {
     id: 'C0300',

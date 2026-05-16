@@ -27,7 +27,7 @@ export const productosPlayeras: Producto[] = [
     imagen: 'https://www.moplayeras.com/cdn/shop/products/92233_MF_720x.jpg?v=1682367230',
     imagenes: [
       'https://www.moplayeras.com/cdn/shop/products/92233_MF_720x.jpg?v=1682367230',
-      'https://https://secuenciasolutions.com.mx/2020/wp-content/uploads/2024/08/PLAYERA-ADULTO-MampO-MOD.-4800-COLORES-COLORES.png'
+      'https://secuenciasolutions.com.mx/2020/wp-content/uploads/2024/08/PLAYERA-ADULTO-MampO-MOD.-4800-COLORES-COLORES.png'
     ]
   },
   {

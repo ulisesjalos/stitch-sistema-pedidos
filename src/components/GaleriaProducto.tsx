@@ -1,0 +1,1 @@
+<GaleriaProducto producto={productoSeleccionado} />

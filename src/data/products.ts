@@ -299,7 +299,7 @@ export const productosDeportiva: Producto[] = [
     precios: { base: 130, XXG: 150 },
     imagen: 'https://yazbek.com.mx/cdn/shop/files/N1302-playera-cr-mc-unisex-nino-100poliester-rojo_3.jpg?v=1736268192',
     imagenes: [
-      'https://yazbek.com.mx/cdn/shop/files/N1302-playera-cr-mc-unisex-nino-100poliester-negro_3_1200x1200.jpg?v=1736268172',
+      'https://yazbek.com.mx/cdn/shop/files/N1302-playera-cr-mc-unisex-nino-100poliester-rojo_3.jpg?v=1736268192',
       'https://images.unsplash.com/photo-1471286174243-e85afc3cbdc3?w=600&auto=format&fit=crop&q=80'
     ],
     colores: COLORES_POLIESTER_DRY
